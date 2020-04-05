@@ -17,7 +17,7 @@ namespace LeetCode.Test
         [InlineData(97)]
         public void WhenHappyNumberIsAvailableUsingDictionary(int number)
         {
-            var elementOnlyOnce = Day2HappyNumber.FindHappyNumberUsingDictionary(number);
+            var elementOnlyOnce = new Day2HappyNumber().FindHappyNumberUsingDictionary(number);
 
             elementOnlyOnce.Should().BeTrue();
         }
@@ -34,7 +34,7 @@ namespace LeetCode.Test
         [InlineData(97)]
         public void WhenHappyNumberIsAvailableUsingList(int number)
         {
-            var elementOnlyOnce = Day2HappyNumber.FindHappyNumberUsingList(number);
+            var elementOnlyOnce = new Day2HappyNumber().FindHappyNumberUsingList(number);
 
             elementOnlyOnce.Should().BeTrue();
         }
@@ -51,7 +51,7 @@ namespace LeetCode.Test
         [InlineData(97)]
         public void WhenHappyNumberIsAvailableUsingHashSet(int number)
         {
-            var elementOnlyOnce = Day2HappyNumber.FindHappyNumberUsingHashSet(number);
+            var elementOnlyOnce = new Day2HappyNumber().FindHappyNumberUsingHashSet(number);
 
             elementOnlyOnce.Should().BeTrue();
         }
@@ -68,7 +68,7 @@ namespace LeetCode.Test
         [InlineData(97)]
         public void WhenHappyNumberIsUsingListWithoutLinq(int number)
         {
-            var elementOnlyOnce = Day2HappyNumber.FindHappyNumberUsingListWithoutLinq(number);
+            var elementOnlyOnce = new Day2HappyNumber().FindHappyNumberUsingListWithoutLinq(number);
 
             elementOnlyOnce.Should().BeTrue();
         }
@@ -87,7 +87,7 @@ namespace LeetCode.Test
         [InlineData(97)]
         public void WhenHappyNumberIsUsing2Pointers(int numberToTest)
         {
-            var elementOnlyOnce = Day2HappyNumber.FindHappyNumberUsingHashSetWith2Pointers(numberToTest);
+            var elementOnlyOnce = new Day2HappyNumber().FindHappyNumberUsingHashSetWith2Pointers(numberToTest);
 
             elementOnlyOnce.Should().BeTrue();
         }

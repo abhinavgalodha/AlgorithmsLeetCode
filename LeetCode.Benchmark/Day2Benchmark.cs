@@ -11,41 +11,38 @@ namespace LeetCode.Benchmark
     [Orderer(SummaryOrderPolicy.FastestToSlowest)]
     public class Day2Benchmark
     {
+        [Params(1, 7, 10, 13, 19, 23, 28, 31, 32, 44, 49, 68, 70,79, 82, 86, 91, 94, 97)]
+        public int NumberToTest { get; set;}
+
         [Benchmark]
         public void FindHappyNumberUsingList()
         {
-            var numberToTest = 19;
-            var isHappyNumber = Day2HappyNumber.FindHappyNumberUsingList(numberToTest);
-
+            var isHappyNumber = new Day2HappyNumber().FindHappyNumberUsingList(NumberToTest);
         }
 
         [Benchmark]
         public void FindHappyNumberUsingDictionary()
         {
-            var numberToTest = 19;
-            var isHappyNumber = Day2HappyNumber.FindHappyNumberUsingDictionary(numberToTest);
+            var isHappyNumber = new Day2HappyNumber().FindHappyNumberUsingDictionary(NumberToTest);
         }
 
         [Benchmark]
         public void FindHappyNumberUsingHashSet()
         {
-            var numberToTest = 19;
-            var isHappyNumber = Day2HappyNumber.FindHappyNumberUsingHashSet(numberToTest);
+            var isHappyNumber = new Day2HappyNumber().FindHappyNumberUsingHashSet(NumberToTest);
         }
 
 
         [Benchmark]
         public void FindHappyNumberUsingListWithoutLinq()
         {
-            var numberToTest = 19;
-            var isHappyNumber = Day2HappyNumber.FindHappyNumberUsingListWithoutLinq(numberToTest);
+            var isHappyNumber = new Day2HappyNumber().FindHappyNumberUsingListWithoutLinq(NumberToTest);
         }
 
         [Benchmark]
         public void FindHappyNumberUsing2Pointers()
         {
-            var numberToTest = 19;
-            var isHappyNumber = Day2HappyNumber.FindHappyNumberUsingHashSetWith2Pointers(numberToTest);
+            var isHappyNumber = new Day2HappyNumber().FindHappyNumberUsingHashSetWith2Pointers(NumberToTest);
         }
     }
 }

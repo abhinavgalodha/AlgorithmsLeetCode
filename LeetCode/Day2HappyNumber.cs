@@ -23,12 +23,12 @@ namespace LeetCode
    
          */
 
-        private static readonly Dictionary<int, int> dictOfNumbers = new Dictionary<int, int>();
-        private static List<int> listOfNumbers = new List<int>();
-        private static List<int> listOfNumbersWithoutLinq = new List<int>();
-        private static HashSet<int> hashSetOfNumbers = new HashSet<int>();
+        private readonly Dictionary<int, int> dictOfNumbers = new Dictionary<int, int>();
+        private List<int> listOfNumbers = new List<int>();
+        private List<int> listOfNumbersWithoutLinq = new List<int>();
+        private HashSet<int> hashSetOfNumbers = new HashSet<int>();
 
-        public static bool FindHappyNumberUsingList(int numberToTest)
+        public bool FindHappyNumberUsingList(int numberToTest)
         {
             int sumOfSquaresOfDigits = 0;
             if (listOfNumbers.Contains(numberToTest))
@@ -57,7 +57,7 @@ namespace LeetCode
             return true;
         }
 
-        public static bool FindHappyNumberUsingDictionary(int numberToTest)
+        public bool FindHappyNumberUsingDictionary(int numberToTest)
         {
             int sumOfSquaresOfDigits = 0;
             if (dictOfNumbers.ContainsKey(numberToTest))
@@ -86,7 +86,7 @@ namespace LeetCode
             return true;
         }
 
-        public static bool FindHappyNumberUsingHashSet(int numberToTest)
+        public bool FindHappyNumberUsingHashSet(int numberToTest)
         {
             int sumOfSquaresOfDigits = 0;
             if (hashSetOfNumbers.Contains(numberToTest))
@@ -115,7 +115,7 @@ namespace LeetCode
             return true;
         }
 
-        public static bool FindHappyNumberUsingListWithoutLinq(int numberToTest)
+        public bool FindHappyNumberUsingListWithoutLinq(int numberToTest)
         {
             int sumOfSquaresOfDigits = 0;
             if (listOfNumbersWithoutLinq.Contains(numberToTest))
@@ -141,7 +141,7 @@ namespace LeetCode
             return true;
         }
 
-        public static bool FindHappyNumberUsingHashSetWith2Pointers(int numberToTest)
+        public bool FindHappyNumberUsingHashSetWith2Pointers(int numberToTest)
         {
             int slowPointer = CalculateSquareOfDigits(numberToTest);
             int fastPointer = CalculateSquareOfDigits(CalculateSquareOfDigits(numberToTest));
@@ -153,7 +153,7 @@ namespace LeetCode
             return true;
         }
 
-        private static int CalculateSquareOfDigits(int digit)
+        private int CalculateSquareOfDigits(int digit)
         {
             int sumOfSquaresOfDigits = 0;
             while (digit !=  0)
