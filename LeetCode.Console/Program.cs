@@ -16,10 +16,10 @@ namespace LeetCode.Console
                 System.Console.WriteLine("Find Element is Working fine.");
             }
 
-            Day2HappyNumber.FindHappyNumberUsingList(19);
-            Day2HappyNumber.FindHappyNumberUsingDictionary(19);
-            Day2HappyNumber.FindHappyNumberUsingHashSet(19);
-            Day2HappyNumber.FindHappyNumberUsingListWithoutLinq(19);
+            new Day2HappyNumber().FindHappyNumberUsingList(19);
+            new Day2HappyNumber().FindHappyNumberUsingDictionary(19);
+            new Day2HappyNumber().FindHappyNumberUsingHashSet(19);
+            new Day2HappyNumber().FindHappyNumberUsingListWithoutLinq(19);
 
             System.Console.WriteLine("Hello World!");
         }

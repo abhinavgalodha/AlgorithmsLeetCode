@@ -76,6 +76,7 @@ namespace LeetCode.Test
         //FindHappyNumberUsingHashSetWith2Pointers
 
         [Theory]
+        [InlineData(1)]
         [InlineData(7)]
         [InlineData(10)]
         [InlineData(13)]
@@ -91,5 +92,16 @@ namespace LeetCode.Test
 
             elementOnlyOnce.Should().BeTrue();
         }
+
+        [Theory]
+        [InlineData(2)]
+        [InlineData(4)]
+        public void WhenNotHappyNumberIsUsing2Pointers(int numberToTest)
+        {
+            var elementOnlyOnce = new Day2HappyNumber().FindHappyNumberUsingHashSetWith2Pointers(numberToTest);
+
+            elementOnlyOnce.Should().BeFalse();
+        }
     }
 }
+

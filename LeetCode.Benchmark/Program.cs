@@ -10,6 +10,7 @@ namespace LeetCode.Benchmark
         {
             Console.WriteLine("Hello World!");
             BenchmarkRunner.Run<Day2Benchmark>();
+            Console.ReadLine();
         }
 
     }

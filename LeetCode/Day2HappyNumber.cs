@@ -143,15 +143,20 @@ namespace LeetCode
 
         public bool FindHappyNumberUsingHashSetWith2Pointers(int numberToTest)
         {
-            int slowPointer = CalculateSquareOfDigits(numberToTest);
-            int fastPointer = CalculateSquareOfDigits(CalculateSquareOfDigits(numberToTest));
-
-            while (slowPointer != fastPointer)
+            // Using Floyd cycle detection algorithm
+            int slowPointer = numberToTest;
+            int fastPointer = CalculateSquareOfDigits(slowPointer);
+            
+            while(slowPointer != fastPointer)
             {
-                return FindHappyNumberUsingHashSetWith2Pointers(slowPointer);
-            }
-            return true;
+                slowPointer = CalculateSquareOfDigits(slowPointer);
+                fastPointer = CalculateSquareOfDigits(CalculateSquareOfDigits(fastPointer));
+            } 
+            
+            if (slowPointer == 1) return true;
+            else return false;
         }
+
 
         private int CalculateSquareOfDigits(int digit)
         {
