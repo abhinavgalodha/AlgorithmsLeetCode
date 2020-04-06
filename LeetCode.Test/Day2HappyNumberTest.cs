@@ -3,7 +3,7 @@ using Xunit;
 
 namespace LeetCode.Test
 {
-    public class Day2Test
+    public class Day2HappyNumberTest
     {
         [Theory]
         [InlineData(7)]
