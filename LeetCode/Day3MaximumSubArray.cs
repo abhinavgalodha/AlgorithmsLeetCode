@@ -31,17 +31,20 @@ namespace LeetCode
          */
 
 
-        public int GetMaximumSubArray(int[] array)
+        public int GetMaximumSubArray(int[] nums)
         {
-            var maximumSum = array[0];
-            var previousSum = maximumSum;
-            var sum = array[0];
+            var maximumSum = nums[0];
             
-            for (int index = 0; index < array.Length; index++)
+            for (int index = 0; index < nums.Length; index++)
             {
-                for (int innerIndex = index + 1; innerIndex < array.Length; innerIndex++)
+                var sum = nums[index];
+                if (maximumSum < sum)
                 {
-                    sum = sum + array[innerIndex];
+                    maximumSum = sum;
+                }
+                for (int innerIndex = index + 1; innerIndex < nums.Length; innerIndex++)
+                {
+                    sum = sum + nums[innerIndex];
                     if (maximumSum < sum)
                     {
                         maximumSum = sum;

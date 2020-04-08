@@ -8,14 +8,14 @@ namespace LeetCode.Test
 {
     public class Day3MaximumSubArrayTests
     {
-        [Fact]
-        public void FindMaximumSubArrayPositive()
+        [Theory]
+        [InlineData(new int[] { -2,1,-3,4,-1,2,1,-5,4 } , 6)]
+        [InlineData(new int[] { -2,1 } , 1)]
+        [InlineData(new int[] { -1,0,-2 } , 0)]
+        public void FindMaximumSubArrayPositive(int[] inputArray, int maxSum)
         {
-            var inputArray = new int[] {-2,1,-3,4,-1,2,1,-5,4};
-            var expectedSum = 6;
-
             var actualResult = new Day3MaximumSubArray().GetMaximumSubArray(inputArray);
-            actualResult.Should().Be(expectedSum);
+            actualResult.Should().Be(maxSum);
 
             
         }
