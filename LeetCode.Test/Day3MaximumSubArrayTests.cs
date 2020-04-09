@@ -12,9 +12,9 @@ namespace LeetCode.Test
             => new List<object[]>
             {
                 new object[] {new int[] { -2,1,-3,4,-1,2,1,-5,4 } , 6},
-                //new object[] {new int[] { -2,1 } , 1},
-                //new object[] {new int[] { -1,0,-2  } , 0},
-                //new object[] {new int[] { -1,-5,-2 } , -1},
+                new object[] {new int[] { -2,1 } , 1},
+                new object[] {new int[] { -1,0,-2  } , 0},
+                new object[] {new int[] { -1,-5,-2 } , -1},
             };
 
         [Theory]
