@@ -28,5 +28,21 @@ namespace LeetCode.Test
             result.Should().BeEquivalentTo(groupOfAnagrams);
         }
 
+        [Theory]
+        [MemberData(nameof(TestData))]
+        public void GetAnagramsOptimizedArrayAndDict(string[] inputArray, List<List<string>> groupOfAnagrams)
+        {
+            var result  = new Day6GroupAnagrams().GetAnagramsOptimizedArrayAndDict(inputArray);
+            result.Should().BeEquivalentTo(groupOfAnagrams);
+        }
+
+        [Theory]
+        [MemberData(nameof(TestData))]
+        public void GetAnagramsUsingCountSort(string[] inputArray, List<List<string>> groupOfAnagrams)
+        {
+            var result  = new Day6GroupAnagrams().GetAnagramsUsingCountSort(inputArray);
+            result.Should().BeEquivalentTo(groupOfAnagrams);
+        }
+
     }
 }

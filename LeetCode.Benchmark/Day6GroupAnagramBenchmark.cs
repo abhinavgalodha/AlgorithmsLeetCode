@@ -24,5 +24,19 @@ namespace LeetCode.Benchmark
             new Day6GroupAnagrams().GetAnagramsGroup(inputStringArray);
         }
 
+        [Benchmark]
+        [ArgumentsSource(nameof(Input))]
+        public void GetAnagramsOptimizedArrayAndDict(string[] inputStringArray)
+        {
+            new Day6GroupAnagrams().GetAnagramsOptimizedArrayAndDict(inputStringArray);
+        }
+
+        [Benchmark]
+        [ArgumentsSource(nameof(Input))]
+        public void GetAnagramsUsingCountSort(string[] inputStringArray)
+        {
+            new Day6GroupAnagrams().GetAnagramsUsingCountSort(inputStringArray);
+        }
+
     }
 }
