@@ -34,5 +34,21 @@ namespace LeetCode.Test
             inputArray.Should().BeEquivalentTo(expectedArray);
         }
 
+        [Theory]
+        [MemberData(nameof(TestData))]
+        public void MoveAllZeroesUsing2Pointers(int[] inputArray, int[] expectedArray)
+        {
+            new Day4MoveZeroes().MoveAllZeroesUsing2Pointers(inputArray);
+            inputArray.Should().BeEquivalentTo(expectedArray);
+        }
+
+        [Theory]
+        [MemberData(nameof(TestData))]
+        public void MoveAllZeroesUsing2PointersOptimal(int[] inputArray, int[] expectedArray)
+        {
+            new Day4MoveZeroes().MoveAllZeroesUsing2PointersOptimal(inputArray);
+            inputArray.Should().BeEquivalentTo(expectedArray);
+        }
+
     }
 }

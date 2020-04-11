@@ -70,31 +70,33 @@ namespace LeetCode
 
         public void MoveAllZeroesUsing2Pointers(int[] nums)
         {
-            var slowPointer = 0;
-            var fastPointer = 0;
-
             var lengthOfArray = nums.Length;
-
-            while (slowPointer < lengthOfArray)
+            var lastNonZeroIndex = 0;
+            for (int index = 0; index < lengthOfArray; index++)
             {
-                
-                slowPointer++;
-            }
-
-            var resultArray = new int[lengthOfArray];
-            var resultIndex = 0;
-            for (int i = 0; i < lengthOfArray; i++)
-            {
-                if (nums[i] != 0)
+                if (nums[index] != 0)
                 {
-                    resultArray[resultIndex] = nums[i];
-                    resultIndex++;
+                    nums[lastNonZeroIndex] = nums[index];
+                    lastNonZeroIndex++;
                 }
             }
 
-            for (int i = 0; i < lengthOfArray; i++)
+            for (int zeroIndex = lastNonZeroIndex; zeroIndex < lengthOfArray; zeroIndex++)
             {
-                nums[i] = resultArray[i];
+                nums[zeroIndex] = 0;
+            }
+        }
+
+        public void MoveAllZeroesUsing2PointersOptimal(int[] nums)
+        {
+            for (int lastNonZeroFoundAt = 0, currentIndex = 0; currentIndex < nums.Length; currentIndex++) {
+                if (nums[currentIndex] != 0)
+                {
+                    var temp = nums[currentIndex];
+                    nums[currentIndex] = nums[lastNonZeroFoundAt];
+                    nums[lastNonZeroFoundAt] = temp;
+                    lastNonZeroFoundAt++;
+                }
             }
         }
     }
