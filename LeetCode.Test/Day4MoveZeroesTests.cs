@@ -1,4 +1,5 @@
 ﻿using FluentAssertions;
+using LeetCode.Test.BaseTypes;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,8 +8,7 @@ using Xunit;
 namespace LeetCode.Test
 {
 
-    [CollectionDefinition("GlobalSetup")]
-    public class Day4MoveZeroesTests
+    public class Day4MoveZeroesTests : BaseTests
     {
         public static IEnumerable<object[]> TestData
             => new List<object[]>

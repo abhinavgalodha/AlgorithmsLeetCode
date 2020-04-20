@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 using FluentAssertions;
+using LeetCode.Test.BaseTypes;
 using Xunit;
 
 namespace LeetCode.Test
 {
-    [CollectionDefinition("GlobalSetup")]
-
-    public class Day6GroupAnagramsTest
+    public class Day6GroupAnagramsTest : BaseTests
     {
         public static IEnumerable<object[]> TestData
             => new List<object[]>
