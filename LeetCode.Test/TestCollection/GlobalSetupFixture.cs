@@ -1,4 +1,5 @@
 ﻿using FluentAssertions;
+using System;
 using Xunit;
 [assembly: CollectionBehavior(MaxParallelThreads = 4)]
 
@@ -12,7 +13,7 @@ namespace LeetCode.Test.TestCollection
         }
     }
 
-    [CollectionDefinition("GlobalSetup")]
+    [CollectionDefinition(nameof(GlobalSetupFixture))]
     public class GlobalSetupCollection : ICollectionFixture<GlobalSetupFixture>
     {
 
