@@ -6,6 +6,8 @@ using Xunit;
 
 namespace LeetCode.Test
 {
+    [CollectionDefinition("GlobalSetup")]
+
     public class Day6GroupAnagramsTest
     {
         public static IEnumerable<object[]> TestData

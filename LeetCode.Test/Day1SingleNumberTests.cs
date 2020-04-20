@@ -3,7 +3,7 @@ using Xunit;
 
 namespace LeetCode.Test
 {
-    public class Day1SingleNumberTest
+    public class Day1SingleNumberTests
     {
         [Fact]
         public void WhenMultipleNumberInArrayFindElement()
