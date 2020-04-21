@@ -26,17 +26,32 @@ namespace LeetCode
     {
         public int[] ProductExceptSelf(int[] nums) 
         {
-            var product = nums.Aggregate((accumulator, currentItem) => currentItem == 0 ? accumulator * 1 : accumulator * currentItem);
+            var product = nums.Aggregate(1, (accumulator, currentItem) => currentItem == 0 ? accumulator * 1 : accumulator * currentItem);
+            var zerosCountInArray = 0;
+            var zeroIndex = 0;
             var outputArray = new int[nums.Length];
         
             for(int index = 0 ; index < nums.Length; index++)
             {
                 if (nums[index] == 0)
                 {
+                    zerosCountInArray++;
+                    zeroIndex = index;
                     continue;
                 }
                 outputArray[index] = product/nums[index];
             }
+
+            if (zerosCountInArray > 0)
+            {
+                outputArray = new int[nums.Length];
+                if (zerosCountInArray == 1)
+                {
+                    outputArray[zeroIndex] = product;
+                }
+            }
+            
+
             return outputArray;
         }
     }

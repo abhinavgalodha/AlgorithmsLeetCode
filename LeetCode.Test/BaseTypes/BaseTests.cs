@@ -6,7 +6,6 @@ using Xunit;
 
 namespace LeetCode.Test.BaseTypes
 {
-    [Collection(nameof(GlobalSetupFixture))]
     public class BaseTests
     {
     }

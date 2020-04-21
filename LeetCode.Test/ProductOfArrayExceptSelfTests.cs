@@ -1,14 +1,12 @@
 ﻿using FluentAssertions;
-using LeetCode.Test.BaseTypes;
+using LeetCode.Test.Extension;
 using LeetCode.Test.TestCollection;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace LeetCode.Test
 {
-    public class ProductOfArrayExceptSelfTests : BaseTests
+    public class ProductOfArrayExceptSelfTests
     {
         public static IEnumerable<object[]> TestData
             => new List<object[]>
@@ -21,17 +19,12 @@ namespace LeetCode.Test
                };
 
 
-        public ProductOfArrayExceptSelfTests(GlobalSetupFixture globalFixture)
-        {
-
-        }
-
         [Theory]
         [MemberData(nameof(TestData))]
         public void ProductArrayExceptSelfPositiveTest(int[] inputArray, int[] expectedArray)
         {
             var result = new ProductOfArrayExceptSelf().ProductExceptSelf(inputArray);
-            result.Should().BeEquivalentTo(expectedArray);
+            result.Should().BeEquivalentWithStrictOrderTo(expectedArray);
         }
     }
 }

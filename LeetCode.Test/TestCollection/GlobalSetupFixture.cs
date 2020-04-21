@@ -9,7 +9,7 @@ namespace LeetCode.Test.TestCollection
     {
         public GlobalSetupFixture()
         {
-            AssertionOptions.AssertEquivalencyUsing(options => options.WithStrictOrdering());
+            Console.WriteLine("Global Set up for tests");
         }
     }
 

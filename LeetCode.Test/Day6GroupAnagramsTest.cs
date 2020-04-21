@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Text;
 using FluentAssertions;
 using LeetCode.Test.BaseTypes;
+using LeetCode.Test.Extension;
 using Xunit;
 
 namespace LeetCode.Test
 {
-    public class Day6GroupAnagramsTest : BaseTests
+    public class Day6GroupAnagramsTest
     {
         public static IEnumerable<object[]> TestData
             => new List<object[]>
@@ -15,9 +16,9 @@ namespace LeetCode.Test
                 new object[]
                 {
                     new string[] {"eat", "tea", "tan", "ate", "nat", "bat"} ,
-                    new List<List<string>>() { new List<String>(){"ate","eat","tea"},
-                         new List<String>(){ "nat","tan"},
-                        new List<String>(){"bat"}}
+                    new List<List<string>>() { new List<string>(){"ate","eat","tea"},
+                         new List<string>(){ "nat","tan"},
+                        new List<string>(){"bat"}}
                 },
             };
 
