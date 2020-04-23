@@ -9,4 +9,8 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Learnings\Challenges\" />
+  </ItemGroup>
+
 </Project>
