@@ -11,3 +11,7 @@ Slow and fast pointer approach
 ### Examples
 Product Of Array except Self is easier to solve if we draw the solution and can see the Left and the Right array.
 
+## Using Dictionary
+
+* Remember to check for Duplicates in Dictionary while Adding, Also check if the Key exists before retrieving,
+ Otherwise exception is thrown

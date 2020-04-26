@@ -50,8 +50,32 @@ namespace LeetCode.Test
             var secondValue = cache.Get(4);       // returns 4
 
             valueDoesNotExist.Should().Be(-1);
-            valueDoesNotExist.Should().Be(3);
-            valueDoesNotExist.Should().Be(4);
+            firstValue.Should().Be(3);
+            secondValue.Should().Be(4);
+        }
+
+        [Fact]
+        public void WhenSameKeyInsertedTwiceWithDifferentValue_ThenReturnLastValueForTheKey()
+        {
+            LRUCache cache = new LRUCache( 2);
+            cache.Put(2, 1);
+            cache.Put(2, 2);
+            var result = cache.Get(2);
+            result.Should().Be(2);
+        }
+
+        [Fact]
+        public void WhenSomeRandomOperationLRUShouldWorkCorrectly()
+        {
+            LRUCache cache = new LRUCache( 2);
+            cache.Get(2);
+            cache.Put(2, 6);
+            cache.Get(1);
+            cache.Put(1, 5);
+            cache.Put(1, 2);
+            cache.Get(1);
+            var result = cache.Get(2);
+            result.Should().Be(6);
         }
     }
 }
