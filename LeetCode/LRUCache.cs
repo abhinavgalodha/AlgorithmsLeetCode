@@ -55,7 +55,7 @@ namespace LeetCode
                 {
                     var lruKey = _leastRecentlyUsedArray[0];
                     _leastRecentlyUsedArray.Remove(lruKey);
-                    _dictLRUCache.Remove(lruKey);
+                    _dictLRUCache.Remove(lruKey); 
                 }
             
                 _dictLRUCache.Add(key, value);

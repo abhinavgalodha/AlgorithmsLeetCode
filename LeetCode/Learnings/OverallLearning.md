@@ -15,3 +15,8 @@ Product Of Array except Self is easier to solve if we draw the solution and can 
 
 * Remember to check for Duplicates in Dictionary while Adding, Also check if the Key exists before retrieving,
  Otherwise exception is thrown
+
+## Use Doubly Linked list when fast Deletion and insertion is required of order O(1).
+
+
+
