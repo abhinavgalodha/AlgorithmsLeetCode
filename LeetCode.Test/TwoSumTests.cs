@@ -23,7 +23,7 @@ namespace LeetCode.Test
         [MemberData(nameof(TestData))]
         public void PositiveTests(int[] inputArray, int target, int[] expectedArray)
         {
-            var result  = new TwoSum().Calculate(inputArray, target);
+            var result  = new TwoSum().CalculateV2(inputArray, target);
             result.Should().BeEquivalentWithStrictOrderTo(expectedArray);
         }
 

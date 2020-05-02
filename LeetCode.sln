@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeetCode", "LeetCode\LeetCo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeetCode.Benchmark", "LeetCode.Benchmark\LeetCode.Benchmark.csproj", "{1F58AE43-42C2-475E-B765-36CBF3F3E5E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeetCode.Console", "LeetCode.Console\LeetCode.Console.csproj", "{49D290C0-C47C-4A76-BB56-DB3E8287DE6F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeetCode.Console", "LeetCode.Console\LeetCode.Console.csproj", "{49D290C0-C47C-4A76-BB56-DB3E8287DE6F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

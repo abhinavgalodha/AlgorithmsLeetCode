@@ -60,7 +60,7 @@ namespace LeetCode
             return result;
         }
 
-        public int[] Calculate(int[] nums, int target) {
+        public int[] CalculateV2(int[] nums, int target) {
             Dictionary<int, int> intStore = new Dictionary<int, int>();    
             for (int i=0; i<nums.Length; i++) {
                 if (intStore.ContainsKey(target-nums[i])) {
@@ -71,5 +71,16 @@ namespace LeetCode
             }
             return null;
         }
+
+        //public int[] CalculateV3(int[] nums, int target)
+        //{
+        //    var dictNumberToFindAndItsIndex = new Dictionary<int, int>();
+        //    for (var index = 0; index < nums.Length; index++)
+        //    {
+        //        var number = nums[index];
+        //        var numberToFind = target - number;
+        //        dictNumberToFindAndItsIndex.Add(number, index);
+        //    }
+        //}
     }
 }
