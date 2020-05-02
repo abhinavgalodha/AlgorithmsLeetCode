@@ -25,7 +25,7 @@ namespace LeetCode
      */
     public class RemoveKDigits
     {
-        public string GetSmallestNumberV2(string num, int k)
+        public string GetSmallestNumberV1(string num, int k)
         {
             char[] array = num.ToCharArray(); // use array as stack
             int end = 0; // [0, end) of the array is result
@@ -49,7 +49,7 @@ namespace LeetCode
             return start >= end ? "0" : new string(array.Skip(start).Take(end - start).ToArray()); 
         }
 
-        public string GetSmallestNumberv3(string num, int k)
+        public string GetSmallestNumberV2(string num, int k)
         {
 
             int digits = num.Length - k;
@@ -82,7 +82,7 @@ namespace LeetCode
         public string GetSmallestNumber(string num, int k)
         {
             // Guard Conditions
-            Rmif (String.IsNullOrWhiteSpace(num))
+            if (String.IsNullOrWhiteSpace(num))
             {
                 return string.Empty;
             }
@@ -111,13 +111,14 @@ namespace LeetCode
             for (int index = 1; index < stringLength; index++)
             {
                 var digit = num[index];
-                var topOfStack = stackDigits.Peek();
-                if (digit < topOfStack)
+                while (stackDigits.Count > 0 && 
+                       digitsToRemove > 0 &&
+                       digit < stackDigits.Peek())
                 {
                     stackDigits.Pop();
-                    stackDigits.Push(digit);
                     digitsToRemove--;
                 }
+                stackDigits.Push(digit);
             }
 
             for (int index = 0; index < digitsToRemove; index++)
@@ -125,14 +126,31 @@ namespace LeetCode
                 stackDigits.Pop();
             }
 
+            //Remove leading zeros
 
             var lastIndex = stringLength - k - 1;
             foreach (var itemInStack in stackDigits)
             {
                 resultString[lastIndex] = itemInStack;
+                lastIndex--;
             }
 
-            return new string(resultString);
+            var nonZeroIndex = 0;
+            for (int i = 0; i < resultString.Length; i++)
+            {
+                if (resultString[i] == '0')
+                {
+                    nonZeroIndex++;
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            var resultSpan = resultString.AsSpan().Slice(nonZeroIndex, stringLength - k - nonZeroIndex);
+
+            return new string(resultSpan);
         }
     }
 
