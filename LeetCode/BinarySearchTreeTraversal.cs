@@ -59,8 +59,8 @@ namespace LeetCode
             var currentNode = root;
             var stackOfInt = new Stack<TreeNode>();
 
-            // Traverse the Tree 
-            while (currentNode != null || 
+            //Traverse the Tree
+            while (currentNode != null ||
                    stackOfInt.Count > 0)
             {
                 // Traverse the Leftmost node until no more left nodes

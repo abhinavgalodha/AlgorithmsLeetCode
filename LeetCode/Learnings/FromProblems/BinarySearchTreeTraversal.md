@@ -25,12 +25,14 @@ All elements are visited.
 All elements are visited.
 
 #### Space Complexity : O(K)
-Depends on the Height of the Tree (k)
+Depends on the Height of the Tree (k).
+Since, we are using the Yield, therefore nothing no memory for list.
 
 ## Learnings
 1. Recursive Solutions use more space.
-2. Iterative solutions may use less space than the recursive solutions.s
-3. 
+2. Iterative solutions may use less space than the recursive solutions.
+3. Yield - iterators can be used to lazily generate a sequence of objects.
+4. Be careful while using the Yield. In case of recursion, the Iterator can create a lot of state machines.
 
 
 ### Depth First Search using Stack
@@ -40,6 +42,7 @@ Once one level is evaluated, the items from Stack can be popped.
 
 ### Yield
 using Yield in C# for collections rather than returning a list in memory.
+Yield - iterators can be used to lazily generate a sequence of objects.
 
 ## Time Taken to solve
 Recursive - 15 mins
