@@ -150,7 +150,9 @@ namespace LeetCode
 
             var resultSpan = resultString.AsSpan().Slice(nonZeroIndex, stringLength - k - nonZeroIndex);
 
-            return new string(resultSpan);
+            var result = new string(resultSpan);
+            return String.IsNullOrWhiteSpace(result) ? "0" : result;
+
         }
     }
 

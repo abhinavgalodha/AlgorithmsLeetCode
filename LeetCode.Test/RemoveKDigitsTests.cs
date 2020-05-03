@@ -16,6 +16,7 @@ namespace LeetCode.Test
                 new object[] {"10200" , 1, "200" },
                 new object[] {"10" , 2, "0" },
                 new object[] {"12345" , 2, "123" },
+                new object[] {"10" , 1, "0" },
             };
 
         [Theory]
