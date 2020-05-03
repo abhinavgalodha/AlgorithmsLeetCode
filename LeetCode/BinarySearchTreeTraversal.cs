@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 
 namespace LeetCode
 {
@@ -47,6 +48,34 @@ namespace LeetCode
                 list.Add(root.val);
                 list.AddRange(InorderTraversal(root.right));
             }
+            return list;
+        }
+
+        public IList<int> InorderTraversalUsingStack(TreeNode root)
+        {
+            var list = new List<int>();
+            if (root == null)
+            {
+                return list;
+            }
+
+            var currentNode = root;
+            var stackOfInts = new Stack<int>();
+
+            while (currentNode.left != null)
+            {
+                currentNode = currentNode.left;
+                stackOfInts.Push(currentNode.val);
+            }
+
+            list.Add(stackOfInts.Pop());
+
+
+
+            
+
+            var currentNoed = root;
+
             return list;
         }
     }
