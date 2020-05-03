@@ -9,6 +9,7 @@ namespace LeetCode.Test
 {
     public class TwoSumTests
     {
+
         public static IEnumerable<object[]> TestData
             => new List<object[]>
             {

@@ -24,7 +24,9 @@ Product Of Array except Self is easier to solve if we draw the solution and can 
 out for the unicode and difference is returned. This is helpful in the problems where a number is given as a string and we need to perform operations on 
 the digits like finding minimum number or maximum number.
 
-### If only Char 
+* Recursive Solutions use more space.
+* Iterative solutions may use less space than the recursive solutions.
+
 
 
 

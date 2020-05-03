@@ -51,32 +51,34 @@ namespace LeetCode
             return list;
         }
 
-        public IList<int> InorderTraversalUsingStack(TreeNode root)
+        public IEnumerable<int> InorderTraversalUsingStack(TreeNode root)
         {
-            var list = new List<int>();
-            if (root == null)
-            {
-                return list;
-            }
-
+            // Initialize the Traversal Point
+            // Initialize the empty stack to store a list of the Tree Nodes to traverse.
+            // The Height of the Stack would depend on the height of the Tree.
             var currentNode = root;
-            var stackOfInts = new Stack<int>();
+            var stackOfInt = new Stack<TreeNode>();
 
-            while (currentNode.left != null)
+            // Traverse the Tree 
+            while (currentNode != null || 
+                   stackOfInt.Count > 0)
             {
-                currentNode = currentNode.left;
-                stackOfInts.Push(currentNode.val);
+                // Traverse the Leftmost node until no more left nodes
+                while (currentNode != null)
+                {
+                    stackOfInt.Push(currentNode);
+                    currentNode = currentNode.left;
+                }
+
+                // Reached the end of the left Node, no more left nodes to process, So consume it.
+                currentNode = stackOfInt.Pop();
+
+                // Yield return so that the operation is lazy
+                yield return currentNode.val;
+
+                // Move to next
+                currentNode = currentNode.right;
             }
-
-            list.Add(stackOfInts.Pop());
-
-
-
-            
-
-            var currentNoed = root;
-
-            return list;
         }
     }
 }
