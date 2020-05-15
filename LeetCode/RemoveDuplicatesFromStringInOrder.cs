@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace LeetCode
 {
@@ -21,7 +22,7 @@ namespace LeetCode
      */
     public class RemoveDuplicatesFromStringInOrder
     {
-        public string Remove(string inputString)
+        public string Removev1(string inputString)
         {
             var hashSetOfCharacters = new HashSet<char>();
             var listChars = new List<char>();
@@ -60,6 +61,34 @@ namespace LeetCode
                 }
             }
             return new string(listChars.ToArray());
+        }
+
+        public string Remove(string s)
+        {
+            Stack<char> stack = new Stack<char>();
+            int[] count = new int[26];
+            char[] arr = s.ToCharArray();
+            foreach(char c in arr) {
+                count[c-'a']++;
+            }
+            bool[] visited = new bool[26];
+            foreach(char c in arr) {
+                count[c-'a']--;
+                if(visited[c-'a']) {
+                    continue;
+                }
+                while(stack.Count > 0 && stack.Peek() > c && count[stack.Peek()-'a'] > 0) {
+                    visited[stack.Peek()-'a'] = false;
+                    stack.Pop();
+                }
+                stack.Push(c);
+                visited[c-'a'] = true;
+            }
+            StringBuilder sb = new StringBuilder();
+            while(stack.Count > 0) {
+                sb.Append(stack.Pop());
+            }
+            return new string(sb.ToString().Reverse().ToArray());
         }
     }
     /*
