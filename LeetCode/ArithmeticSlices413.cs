@@ -34,9 +34,44 @@ namespace LeetCode
     */
     public class ArithmeticSlices413
     {
-        public int NumberOfArithmeticSlices(int[] A) 
+        public int NumberOfArithmeticSlices(int[] A)
         {
-            return 0;
+            // 1. Check the length , if less than 3, then return 0;
+            var numbersLength = A.Length;
+            if (numbersLength < 3)
+            {
+                return 0;
+            }
+
+            var numberOfSlices = 0;
+
+            // Calculate the difference between consecutive numbers
+            var diffArray = new int[numbersLength - 1];
+            for (int index = 0; index < numbersLength - 1  ; index++)
+            {
+                diffArray[index] = A[index+1] - A[index];
+            }
+
+            // iterate and check how many arithmetic slices found
+            for (int index = 0; index < numbersLength - 2; index++)
+            {
+                var previousDiff = diffArray[index];
+                for (int j = index + 1; j < numbersLength - 1; j++)
+                {
+                    var currentDiff = diffArray[j];
+                    if (previousDiff == currentDiff)
+                    {
+                        numberOfSlices++;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                    
+                }
+            }
+            return numberOfSlices;
+
         }
     }
 }
