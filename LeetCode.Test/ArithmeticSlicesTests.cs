@@ -15,6 +15,7 @@ namespace LeetCode.Test
                 new object[] {new int[] { 1, 1, 2, 5, 7 } , 0 } ,
                 new object[] {new int[] {1,2,3,4} , 3 },
                 new object[] {new int[] {1,2,3,8,9,10} , 2 },
+                new object[] {new int[] {1, 3, 5, 7, 9} , 6 },
             };
 
         [Theory]

@@ -34,7 +34,7 @@ namespace LeetCode
     */
     public class ArithmeticSlices413
     {
-        public int NumberOfArithmeticSlices(int[] A)
+        public int NumberOfArithmeticSlicesV1(int[] A)
         {
             // 1. Check the length , if less than 3, then return 0;
             var numbersLength = A.Length;
@@ -47,9 +47,9 @@ namespace LeetCode
 
             // Calculate the difference between consecutive numbers
             var diffArray = new int[numbersLength - 1];
-            for (int index = 0; index < numbersLength - 1  ; index++)
+            for (int index = 0; index < numbersLength - 1; index++)
             {
-                diffArray[index] = A[index+1] - A[index];
+                diffArray[index] = A[index + 1] - A[index];
             }
 
             // iterate and check how many arithmetic slices found
@@ -67,10 +67,54 @@ namespace LeetCode
                     {
                         break;
                     }
-                    
+
                 }
             }
             return numberOfSlices;
+
+        }
+
+        public int NumberOfArithmeticSlices(int[] A)
+        {
+            // 1. Check the length , if less than 3, then return 0;
+            var numbersLength = A.Length;
+            if (numbersLength < 3)
+            {
+                return 0;
+            }
+
+            var totalCountOfSlices = 0;
+
+            // Calculate the difference between consecutive numbers
+            var diffArray = new int[numbersLength - 1];
+            for (int index = 0; index < numbersLength - 1; index++)
+            {
+                diffArray[index] = A[index + 1] - A[index];
+            }
+
+            var countRangeOfSlices = 1;
+            // iterate and check how many arithmetic slices found
+            for (int index = 0; index < numbersLength - 2; index++)
+            {
+                var previousDiff = diffArray[index];
+                var currentDiff = diffArray[index + 1];
+
+                if (previousDiff == currentDiff)
+                {
+                    countRangeOfSlices++;
+                }
+                else
+                {
+                    totalCountOfSlices += countRangeOfSlices * (countRangeOfSlices - 1) / 2;
+                    countRangeOfSlices = 1;
+                }
+            }
+            if (countRangeOfSlices > 1)
+            {
+                totalCountOfSlices += countRangeOfSlices * (countRangeOfSlices - 1) / 2;
+            }
+
+            return totalCountOfSlices;
 
         }
     }
