@@ -34,7 +34,7 @@ namespace LeetCode
     */
     public class ArithmeticSlices413
     {
-        public int NumberOfArithmeticSlicesV1(int[] A)
+        public int NumberOfArithmeticSlicesSimpleQuadratic(int[] A)
         {
             // 1. Check the length , if less than 3, then return 0;
             var numbersLength = A.Length;
@@ -74,7 +74,7 @@ namespace LeetCode
 
         }
 
-        public int NumberOfArithmeticSlices(int[] A)
+        public int NumberOfArithmeticSlicesV2(int[] A)
         {
             // 1. Check the length , if less than 3, then return 0;
             var numbersLength = A.Length;
@@ -85,19 +85,22 @@ namespace LeetCode
 
             var totalCountOfSlices = 0;
 
-            // Calculate the difference between consecutive numbers
-            var diffArray = new int[numbersLength - 1];
+            // Create a difference array which Calculate the difference between consecutive numbers
+            var differenceBetweenConsecutiveNumbersArray = new int[numbersLength - 1];
             for (int index = 0; index < numbersLength - 1; index++)
             {
-                diffArray[index] = A[index + 1] - A[index];
+                differenceBetweenConsecutiveNumbersArray[index] = A[index + 1] - A[index];
             }
 
-            var countRangeOfSlices = 1;
             // iterate and check how many arithmetic slices found
+            // Compare two consecutive elements from the Difference array, 
+            // If both are same it means that they are in the range
+            // 
+            var countRangeOfSlices = 1;
             for (int index = 0; index < numbersLength - 2; index++)
             {
-                var previousDiff = diffArray[index];
-                var currentDiff = diffArray[index + 1];
+                var previousDiff = differenceBetweenConsecutiveNumbersArray[index];
+                var currentDiff = differenceBetweenConsecutiveNumbersArray[index + 1];
 
                 if (previousDiff == currentDiff)
                 {
@@ -105,10 +108,48 @@ namespace LeetCode
                 }
                 else
                 {
+                    // If the difference is same for consecutive numbers and it continues for multiple elements
+                    // then more number of sub-ranges are possible
+                    // The subranges are calculated by using the formula n(n-1)/2 which is the arithmetic progression
+                    // of the n elements
                     totalCountOfSlices += countRangeOfSlices * (countRangeOfSlices - 1) / 2;
                     countRangeOfSlices = 1;
                 }
             }
+            if (countRangeOfSlices > 1)
+            {
+                totalCountOfSlices += countRangeOfSlices * (countRangeOfSlices - 1) / 2;
+            }
+
+            return totalCountOfSlices;
+
+        }
+
+        public int NumberOfArithmeticSlices(int[] A)
+        {
+            var totalCountOfSlices = 0;
+            var countRangeOfSlices = 1;
+
+            for (int index = 0; index < A.Length - 2; index++)
+            {
+                var firstDiff = A[index + 1] - A[index];
+                var secondDiff= A[index + 2] - A[index + 1];
+
+                if (firstDiff == secondDiff)
+                {
+                    countRangeOfSlices++;
+                }
+                else
+                {
+                    // If the difference is same for consecutive numbers and it continues for multiple elements
+                    // then more number of sub-ranges are possible
+                    // The subranges are calculated by using the formula n(n-1)/2 which is the arithmetic progression
+                    // of the n elements
+                    totalCountOfSlices += countRangeOfSlices * (countRangeOfSlices - 1) / 2;
+                    countRangeOfSlices = 1;
+                }
+            }
+
             if (countRangeOfSlices > 1)
             {
                 totalCountOfSlices += countRangeOfSlices * (countRangeOfSlices - 1) / 2;

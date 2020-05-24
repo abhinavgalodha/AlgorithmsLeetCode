@@ -8,5 +8,6 @@ namespace LeetCode.Test.BaseTypes
 {
     public class BaseTests
     {
+
     }
 }
