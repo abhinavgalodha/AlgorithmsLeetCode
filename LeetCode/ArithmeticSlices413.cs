@@ -32,9 +32,14 @@ namespace LeetCode
 
     return: 3, for 3 arithmetic slices in A: [1, 2, 3], [2, 3, 4] and [1, 2, 3, 4] itself.
     */
-    public class ArithmeticSlices413
+    public interface IArithmeticSlices413
     {
-        public int NumberOfArithmeticSlicesSimpleQuadratic(int[] A)
+        int NumberOfArithmeticSlices(int[] A);
+    }
+
+    public class ArithmeticSlices413Quadratic : IArithmeticSlices413, ITestImpementation
+    {
+        public int NumberOfArithmeticSlices(int[] A)
         {
             // 1. Check the length , if less than 3, then return 0;
             var numbersLength = A.Length;
@@ -73,8 +78,11 @@ namespace LeetCode
             return numberOfSlices;
 
         }
+    }
 
-        public int NumberOfArithmeticSlicesV2(int[] A)
+    public class ArithmeticSlices413LinearV1 : IArithmeticSlices413, ITestImpementation
+    {
+        public int NumberOfArithmeticSlices(int[] A)
         {
             // 1. Check the length , if less than 3, then return 0;
             var numbersLength = A.Length;
@@ -125,6 +133,10 @@ namespace LeetCode
 
         }
 
+    }
+
+    public class ArithmeticSlices413LinearV2 : IArithmeticSlices413, ITestImpementation
+    {
         public int NumberOfArithmeticSlices(int[] A)
         {
             var totalCountOfSlices = 0;
@@ -158,5 +170,11 @@ namespace LeetCode
             return totalCountOfSlices;
 
         }
+    }
+
+
+    interface ITestImpementation
+    {
+        
     }
 }
