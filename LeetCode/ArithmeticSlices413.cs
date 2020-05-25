@@ -140,7 +140,7 @@ namespace LeetCode
         public int NumberOfArithmeticSlices(int[] A)
         {
             var totalCountOfSlices = 0;
-            var countRangeOfSlices = 1;
+            var countSubRangeOfSlices = 1;
 
             for (int index = 0; index < A.Length - 2; index++)
             {
@@ -149,22 +149,24 @@ namespace LeetCode
 
                 if (firstDiff == secondDiff)
                 {
-                    countRangeOfSlices++;
+                    countSubRangeOfSlices++;
                 }
                 else
                 {
+                    // Since we have got multiple pairs of the Slices, countSubRangeOfSlices
+                    // There can be multiple sub pairs which can be done from the countSubRangeOfSlices
+                    // Using the mathematical concept of the Combinatorics, or simply calculating the number of pairs for n numbers = (n * (n-1))/2
+                    // This means that the countSubRangeOfSlices can yield (n * (n-1))/2 sub pairs.
                     // If the difference is same for consecutive numbers and it continues for multiple elements
                     // then more number of sub-ranges are possible
-                    // The subranges are calculated by using the formula n(n-1)/2 which is the arithmetic progression
-                    // of the n elements
-                    totalCountOfSlices += countRangeOfSlices * (countRangeOfSlices - 1) / 2;
-                    countRangeOfSlices = 1;
+                    totalCountOfSlices += countSubRangeOfSlices * (countSubRangeOfSlices - 1) / 2;
+                    countSubRangeOfSlices = 1;
                 }
             }
 
-            if (countRangeOfSlices > 1)
+            if (countSubRangeOfSlices > 1)
             {
-                totalCountOfSlices += countRangeOfSlices * (countRangeOfSlices - 1) / 2;
+                totalCountOfSlices += countSubRangeOfSlices * (countSubRangeOfSlices - 1) / 2;
             }
 
             return totalCountOfSlices;
