@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net.Http.Headers;
 
 namespace LeetCode
@@ -39,7 +40,34 @@ namespace LeetCode
          */
         public bool CanFinish(int numCourses, int[][] prerequisites)
         {
-            throw new NotImplementedException();
+            bool canFinish = false;
+
+            // Build Graph from the list of edges
+            List<List<int>> graphUsingAdjacencyList = BuildGraph(numCourses, prerequisites);
+
+            return canFinish;
+
+        }
+
+        private List<List<int>> BuildGraph(int numCourses, int[][] prerequisites)
+        {
+            List<List<int>> adjacencyList = new List<List<int>>(numCourses);
+            
+            // Initialization of the internal List
+            for (int courseIndex = 0; courseIndex < numCourses; courseIndex++)
+            {
+                adjacencyList.Add(new List<int>());
+            }
+
+            // We have jagged array, and the internal array would always contains at max 2 elements which is representation of an edge.
+            for (int index = 0; index < prerequisites.Length; index++)
+            {
+                var edge = prerequisites[index];
+                var from = edge[0];
+                var to = edge[1];
+                adjacencyList[from].Add(to);
+            }
+            return adjacencyList;
         }
     }
 }
