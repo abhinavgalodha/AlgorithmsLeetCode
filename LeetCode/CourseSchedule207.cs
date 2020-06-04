@@ -45,14 +45,45 @@ namespace LeetCode
             // Build Graph from the list of edges
             List<List<int>> graphUsingAdjacencyList = BuildGraph(numCourses, prerequisites);
 
+            var visitedTracker = new bool[graphUsingAdjacencyList.Count];
+            var vertexToStartSearch = 0;
+            // Traverse the Graph in the Depth First Search. If visited any node again then a cycle exists. 
+            DepthFirstSearch(graphUsingAdjacencyList, visitedTracker, vertexToStartSearch);
+
             return canFinish;
 
+        }
+
+        private void DepthFirstSearch(List<List<int>> graphUsingAdjacencyList, bool[] visitedTracker, int vertex)
+        {
+
+            var isCycle = false;
+
+            // Traverse each Node/Vertex
+
+            if (visitedTracker[vertex])
+            {
+                return;
+            }
+
+            visitedTracker[vertex] = true;
+
+            List<int> neighbors = graphUsingAdjacencyList[vertex];
+            foreach (var neighbor in neighbors)
+            {
+                if (visitedTracker[neighbor])
+                {
+                    return;
+                }
+
+                DepthFirstSearch(graphUsingAdjacencyList, visitedTracker, neighbor);
+            }
         }
 
         private List<List<int>> BuildGraph(int numCourses, int[][] prerequisites)
         {
             List<List<int>> adjacencyList = new List<List<int>>(numCourses);
-            
+
             // Initialization of the internal List
             for (int courseIndex = 0; courseIndex < numCourses; courseIndex++)
             {
