@@ -42,25 +42,25 @@ namespace LeetCode
          */
         public bool CanFinish(int numCourses, int[][] prerequisites)
         {
-            bool canFinish = false;
+            bool canFinish = true;
 
             // Build Graph from the list of edges
             List<List<int>> graphUsingAdjacencyList = BuildGraph(numCourses, prerequisites);
-            canFinish = DepthFirstIteration(graphUsingAdjacencyList);
+            bool isCycle = DepthFirstIteration(graphUsingAdjacencyList);
 
             var visitedTracker = new bool[graphUsingAdjacencyList.Count];
             var vertexToStartSearch = 0;
             // Traverse the Graph in the Depth First Search. If visited any node again then a cycle exists. 
             //DepthFirstSearch(graphUsingAdjacencyList, visitedTracker, vertexToStartSearch);
 
-            return canFinish;
+            return !isCycle;
 
         }
         
         private bool DepthFirstIteration(List<List<int>> graph)
         {
             var visitedTracker = new bool[graph.Count];
-            var listOfVisitedVertices = new List<int>();
+            List<int> listOfVisitedVertices;
             var isCycle = false;
 
             for (var index = 0; index < graph.Count; index++)
@@ -80,22 +80,19 @@ namespace LeetCode
 
             void DepthFirstIterationRecursive(int vertex)
             {
-                if (visitedTracker[vertex] == false)
+                if (visitedTracker[vertex] == false && isCycle == false)
                 {
                     listOfVisitedVertices.Add(vertex);
+                    visitedTracker[vertex] = true;
 
                     foreach (var currentVertex in graph[vertex])
                     {
-                        if (visitedTracker[currentVertex] == false)
-                        {
-                            DepthFirstIterationRecursive(currentVertex);    
-                        }
-                        else if (listOfVisitedVertices.Contains(vertex))
-                        {
-                            isCycle = true;
-                            break;
-                        }
+                        DepthFirstIterationRecursive(currentVertex);    
                     }
+                }
+                else if (listOfVisitedVertices.Contains(vertex))
+                {
+                    isCycle = true;
                 }
             }
         }

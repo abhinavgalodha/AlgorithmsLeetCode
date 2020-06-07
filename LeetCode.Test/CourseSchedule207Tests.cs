@@ -13,6 +13,7 @@ namespace LeetCode.Test
             {
                 new object[] { 2, new int[][] { new int[] {1,0} }, true},
                 new object[] { 2, new int[][] { new int[] {0,1}, new int[] {1,0} }, false},
+                new object[] { 3, new int[][] { new int[] {0,1}, new int[] {0,2} , new int[] {1,2}}, true},
             };
 
         [Theory]
