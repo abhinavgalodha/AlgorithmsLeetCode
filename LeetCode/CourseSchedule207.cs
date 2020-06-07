@@ -57,7 +57,7 @@ namespace LeetCode
 
         }
         
-        private bool DepthFirstIteration(List<List<int>> graph)
+        private bool DepthFirstIteration(List<List<int>> graph) 
         {
             var visitedTracker = new bool[graph.Count];
             List<int> listOfVisitedVertices;
@@ -84,11 +84,13 @@ namespace LeetCode
                 {
                     listOfVisitedVertices.Add(vertex);
                     visitedTracker[vertex] = true;
-
-                    foreach (var currentVertex in graph[vertex])
+                    
+                    foreach (int adjacentVertex in graph[vertex])
                     {
-                        DepthFirstIterationRecursive(currentVertex);    
+                        DepthFirstIterationRecursive(adjacentVertex);
                     }
+
+                    listOfVisitedVertices.Remove(vertex);
                 }
                 else if (listOfVisitedVertices.Contains(vertex))
                 {
