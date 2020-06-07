@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Net;
 using System.Net.Http.Headers;
 
 namespace LeetCode
@@ -44,14 +46,58 @@ namespace LeetCode
 
             // Build Graph from the list of edges
             List<List<int>> graphUsingAdjacencyList = BuildGraph(numCourses, prerequisites);
+            canFinish = DepthFirstIteration(graphUsingAdjacencyList);
 
             var visitedTracker = new bool[graphUsingAdjacencyList.Count];
             var vertexToStartSearch = 0;
             // Traverse the Graph in the Depth First Search. If visited any node again then a cycle exists. 
-            DepthFirstSearch(graphUsingAdjacencyList, visitedTracker, vertexToStartSearch);
+            //DepthFirstSearch(graphUsingAdjacencyList, visitedTracker, vertexToStartSearch);
 
             return canFinish;
 
+        }
+        
+        private bool DepthFirstIteration(List<List<int>> graph)
+        {
+            var visitedTracker = new bool[graph.Count];
+            var listOfVisitedVertices = new List<int>();
+            var isCycle = false;
+
+            for (var index = 0; index < graph.Count; index++)
+            {
+                listOfVisitedVertices = new List<int>();
+                if (isCycle == false)
+                {
+                    DepthFirstIterationRecursive(index);    
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            return isCycle;
+
+            void DepthFirstIterationRecursive(int vertex)
+            {
+                if (visitedTracker[vertex] == false)
+                {
+                    listOfVisitedVertices.Add(vertex);
+
+                    foreach (var currentVertex in graph[vertex])
+                    {
+                        if (visitedTracker[currentVertex] == false)
+                        {
+                            DepthFirstIterationRecursive(currentVertex);    
+                        }
+                        else if (listOfVisitedVertices.Contains(vertex))
+                        {
+                            isCycle = true;
+                            break;
+                        }
+                    }
+                }
+            }
         }
 
         private void DepthFirstSearch(List<List<int>> graphUsingAdjacencyList, bool[] visitedTracker, int vertex)
