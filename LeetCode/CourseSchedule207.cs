@@ -46,18 +46,14 @@ namespace LeetCode
 
             // Build Graph from the list of edges
             List<List<int>> graphUsingAdjacencyList = BuildGraph(numCourses, prerequisites);
+        
             bool isCycle = DepthFirstIteration(graphUsingAdjacencyList);
-
-            var visitedTracker = new bool[graphUsingAdjacencyList.Count];
-            var vertexToStartSearch = 0;
-            // Traverse the Graph in the Depth First Search. If visited any node again then a cycle exists. 
-            //DepthFirstSearch(graphUsingAdjacencyList, visitedTracker, vertexToStartSearch);
 
             return !isCycle;
 
         }
-        
-        private bool DepthFirstIteration(List<List<int>> graph) 
+
+        private bool DepthFirstIteration(List<List<int>> graph)
         {
             var visitedTracker = new bool[graph.Count];
             List<int> listOfVisitedVertices;
@@ -96,32 +92,6 @@ namespace LeetCode
                 {
                     isCycle = true;
                 }
-            }
-        }
-
-        private void DepthFirstSearch(List<List<int>> graphUsingAdjacencyList, bool[] visitedTracker, int vertex)
-        {
-
-            var isCycle = false;
-
-            // Traverse each Node/Vertex
-
-            if (visitedTracker[vertex])
-            {
-                return;
-            }
-
-            visitedTracker[vertex] = true;
-
-            List<int> neighbors = graphUsingAdjacencyList[vertex];
-            foreach (var neighbor in neighbors)
-            {
-                if (visitedTracker[neighbor])
-                {
-                    return;
-                }
-
-                DepthFirstSearch(graphUsingAdjacencyList, visitedTracker, neighbor);
             }
         }
 

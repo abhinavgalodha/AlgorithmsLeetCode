@@ -9,7 +9,7 @@ namespace LeetCode.Benchmark
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-            BenchmarkRunner.Run<Day6GroupAnagramBenchmark>();
+            BenchmarkRunner.Run<CourseScheduleBenchmark207>();
             Console.ReadLine();
         }
 

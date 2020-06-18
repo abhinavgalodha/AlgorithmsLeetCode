@@ -9,7 +9,6 @@ namespace LeetCode.Test
 {
     public class TwoSumTests
     {
-
         public static IEnumerable<object[]> TestData
             => new List<object[]>
             {
@@ -27,6 +26,5 @@ namespace LeetCode.Test
             var result  = new TwoSum().CalculateV2(inputArray, target);
             result.Should().BeEquivalentWithStrictOrderTo(expectedArray);
         }
-
     }
 }
