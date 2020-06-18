@@ -64,7 +64,7 @@ namespace LeetCode
             var hashSetOfLastArrayElements = new HashSet<int>(D.Length);
             D.ToList().ForEach(x => hashSetOfLastArrayElements.Add(x));
 
-            // Naive Solution O(N4)
+            // Naive Solution O(N3)
             for (int i = 0; i < A.Length; i++)
             {
                 for (int j = 0; j < B.Length; j++)
@@ -85,7 +85,7 @@ namespace LeetCode
         {
             var result = 0;
 
-            var listOfAB = new List<int>(A.Length);
+            var listOfAB = new HashSet<int>(A.Length);
             for (int i = 0; i < A.Length; i++)
             {
                 for (int j = 0; j < B.Length; j++)
@@ -99,9 +99,14 @@ namespace LeetCode
             {
                 for (int j = 0; j < D.Length; j++)
                 {
-                    listOfAB.Add(C[i] + D[j]);
+                    var sumCD = C[i] + D[j];
+                    if (listOfAB.Contains(-1 * sumCD))
+                    {
+                        result++;
+                    }
                 }
             }
+
             return result;
         }
     }
