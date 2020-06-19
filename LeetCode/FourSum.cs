@@ -112,15 +112,15 @@ namespace LeetCode
                 }
             }
 
-            var listOfCD = new Dictionary<int, int>(D.Length);;
             for (int i = 0; i < C.Length; i++)
             {
                 for (int j = 0; j < D.Length; j++)
                 {
                     var sumCD = C[i] + D[j];
-                    if (dictOfAbSumAndCount.ContainsKey(-1 * sumCD))
+                    var requiredValueForZeroSum = -1 * sumCD;
+                    if (dictOfAbSumAndCount.ContainsKey(requiredValueForZeroSum))
                     {
-                        result = result + dictOfAbSumAndCount[sumCD];
+                        result = result + dictOfAbSumAndCount[requiredValueForZeroSum];
                     }
                 }
             }
