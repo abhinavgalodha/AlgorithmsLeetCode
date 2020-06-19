@@ -36,7 +36,7 @@ namespace LeetCode
         {
             var result = 0;
 
-            // Naive Solution O(N4)
+            // Naive Solution O(N^4)
             for (int i = 0; i < A.Length; i++)
             {
                 for (int j = 0; j < B.Length; j++)
@@ -56,15 +56,25 @@ namespace LeetCode
             return result;
         }
 
-        public int FourSumCountUsingOptimization1(int[] A, int[] B, int[] C, int[] D)
+        public int FourSumCountUsingDictionaryWithCubicRuntime(int[] A, int[] B, int[] C, int[] D)
         {
             var result = 0;
 
             // Store element of the last Array in Hashet. This would be used for searching with O(1).
-            var hashSetOfLastArrayElements = new HashSet<int>(D.Length);
-            D.ToList().ForEach(x => hashSetOfLastArrayElements.Add(x));
+            var dictOfElementsAndCount = new Dictionary<int, int>(D.Length);
+            foreach (var elementInD in D)
+            {
+                if (dictOfElementsAndCount.ContainsKey(elementInD))
+                {
+                    dictOfElementsAndCount[elementInD]++;
+                }
+                else
+                {
+                    dictOfElementsAndCount.Add(elementInD, 1);
+                }
+            }
 
-            // Naive Solution O(N3)
+            // Naive Solution O(N^3)
             for (int i = 0; i < A.Length; i++)
             {
                 for (int j = 0; j < B.Length; j++)
@@ -73,36 +83,44 @@ namespace LeetCode
                     {
                         var currentSum = A[i] + B[j] + C[k];
                         var diff = 0 - currentSum;
-                        if(hashSetOfLastArrayElements.Contains(diff))
-                            result++;
+                        if(dictOfElementsAndCount.ContainsKey(diff))
+                            result = result + dictOfElementsAndCount[diff];
                     }
                 }
             }
             return result;
         }
 
-        public int FourSumCountUsingHashSet(int[] A, int[] B, int[] C, int[] D)
+        public int FourSumCountUsingDictionaryWithQuadraticRunTime(int[] A, int[] B, int[] C, int[] D)
         {
             var result = 0;
 
-            var listOfAB = new HashSet<int>(A.Length);
+            var dictOfAbSumAndCount = new Dictionary<int, int>(A.Length);;
             for (int i = 0; i < A.Length; i++)
             {
                 for (int j = 0; j < B.Length; j++)
                 {
-                    listOfAB.Add(A[i] + B[j]);
+                    var sumOfAB = A[i] + B[j];
+                    if (dictOfAbSumAndCount.ContainsKey(sumOfAB))
+                    {
+                        dictOfAbSumAndCount[sumOfAB]++;
+                    }
+                    else
+                    {
+                        dictOfAbSumAndCount.Add(sumOfAB, 1);
+                    }
                 }
             }
 
-            var listOfCD = new List<int>(A.Length);
+            var listOfCD = new Dictionary<int, int>(D.Length);;
             for (int i = 0; i < C.Length; i++)
             {
                 for (int j = 0; j < D.Length; j++)
                 {
                     var sumCD = C[i] + D[j];
-                    if (listOfAB.Contains(-1 * sumCD))
+                    if (dictOfAbSumAndCount.ContainsKey(-1 * sumCD))
                     {
-                        result++;
+                        result = result + dictOfAbSumAndCount[sumCD];
                     }
                 }
             }

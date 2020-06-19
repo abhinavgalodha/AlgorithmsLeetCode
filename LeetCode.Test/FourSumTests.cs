@@ -28,7 +28,7 @@ namespace LeetCode.Test
         [MemberData(nameof(TestData))]
         public void PositiveTests1(int[] inputArray1, int[] inputArray2, int[] inputArray3, int[] inputArray4, int target)
         {
-            var result  = new FourSum().FourSumCountUsingOptimization1(inputArray1, inputArray2, inputArray3, inputArray4);
+            var result  = new FourSum().FourSumCountUsingDictionaryWithCubicRuntime(inputArray1, inputArray2, inputArray3, inputArray4);
             result.Should().Be(target);
         }
 
@@ -36,7 +36,7 @@ namespace LeetCode.Test
         [MemberData(nameof(TestData))]
         public void PositiveTests2(int[] inputArray1, int[] inputArray2, int[] inputArray3, int[] inputArray4, int target)
         {
-            var result  = new FourSum().FourSumCountUsingHashSet(inputArray1, inputArray2, inputArray3, inputArray4);
+            var result  = new FourSum().FourSumCountUsingDictionaryWithQuadraticRunTime(inputArray1, inputArray2, inputArray3, inputArray4);
             result.Should().Be(target);
         }
     }
