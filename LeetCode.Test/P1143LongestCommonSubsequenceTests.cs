@@ -12,10 +12,13 @@ namespace LeetCode.Test
             new List<object[]>
             {
                 new object[]{ "abcde", "ace", 3 },
-                new object[]{ "abc", "abc" },
+                new object[]{ "abc", "abc", 3 },
                 new object[]{ "abc", "def", 0 },
-                new object[]{ "ABCDGH", "AEDFHR", 3 },
-                new object[]{ "AGGTAB", "GXTXAYB", 4 },
+                new object[]{ "abcdh", "aedfhr", 3 },
+                new object[]{ "aggtab", "gxtxayb", 4 },
+                new object[]{ "gl\v7", "\v7", 2 },
+                new object[]{ "ezupkr","ubmrapg", 2 },
+
             };
 
         [Theory]

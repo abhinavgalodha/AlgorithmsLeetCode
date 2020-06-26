@@ -45,12 +45,10 @@ namespace LeetCode
             // Case sensitivity.
             // Unicode
             int longestCommonSubsequnce = 0;
-            bool matchFoundAtSamePosition = false;
             int secondSequenceStartIndex = 0;
 
             for (int indexFirstSequence = 0; indexFirstSequence < firstSequence.Length; indexFirstSequence++)
             {
-                matchFoundAtSamePosition = false;
                 char charInFirstSequence = firstSequence[indexFirstSequence];
                 for (int indexSecondSequence = secondSequenceStartIndex; indexSecondSequence < secondSequence.Length; indexSecondSequence++)
                 {
@@ -58,15 +56,10 @@ namespace LeetCode
                     if (charInFirstSequence == charInSecondSequence)
                     {
                         longestCommonSubsequnce++;
-                        secondSequenceStartIndex++;
-                        matchFoundAtSamePosition = true;
+                        secondSequenceStartIndex =  indexSecondSequence + 1;
                         break;
                     }
                 }
-                //if(matchFoundAtSamePosition)
-                //{
-                //    break;
-                //}
             }
             return longestCommonSubsequnce;
         }
