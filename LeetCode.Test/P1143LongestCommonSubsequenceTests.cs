@@ -18,7 +18,6 @@ namespace LeetCode.Test
                 new object[]{ "aggtab", "gxtxayb", 4 },
                 new object[]{ "gl\v7", "\v7", 2 },
                 new object[]{ "ezupkr","ubmrapg", 2 },
-
             };
 
         [Theory]
