@@ -1,0 +1,5 @@
+ <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <DebugType>full</DebugType>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>

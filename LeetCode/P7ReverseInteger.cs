@@ -11,7 +11,7 @@ Output: 321
 using System;
 namespace LeetCode
 {
-    public class P7ReverseString
+    public class P7ReverseInteger
     {
         public int Reverse(int x) {
         
