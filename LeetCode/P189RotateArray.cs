@@ -36,7 +36,7 @@ namespace LeetCode
             var rotatedArray = new int[nums.Length];
             Array.Copy(nums, rotatedArray, nums.Length);
         
-            var indexInOriginalArray = k;
+            var indexInOriginalArray =  k % nums.Length;
         
             for(int index = 0; index < nums.Length; index++)
             {
