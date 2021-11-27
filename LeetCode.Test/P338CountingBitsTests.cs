@@ -11,7 +11,8 @@ namespace LeetCode.Test
             new List<object[]>
             {
                 new object[]{ 2 , new int[] {0,1,1} },
-                new object[]{ -123 ,new int[] {0,1,1,2,1,2} },
+                new object[]{ 5 ,new int[] {0,1,1,2,1,2} },
+                new object[]{ 0 ,new int[] {0} },
             };
 
         [Theory]

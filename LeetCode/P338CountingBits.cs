@@ -23,13 +23,34 @@ namespace LeetCode
         public int[] CountBits(int n)
         {
 
-            if (n <= 0)
+            if (n < 0)
                 return new int[0];
 
             // Declare an output array whose length is n+1
             var answerArray = new int[n + 1];
 
-            for (var i = 0; i <= n + 1; i++)
+            for (var i = 0; i <= n; i++)
+            {
+                var countBits = Convert.ToString(i, 2).Count(x => x == '1');
+                answerArray[i] = countBits;
+            }
+
+            // ans[i] = Count of 1's
+            // ans [i] =  get binary representation of a number
+
+            return answerArray;
+        }
+
+        public int[] CountBits1(int n)
+        {
+
+            if (n < 0)
+                return new int[0];
+
+            // Declare an output array whose length is n+1
+            var answerArray = new int[n + 1];
+
+            for (var i = 0; i <= n; i++)
             {
                 var countBits = Convert.ToString(i, 2).Count(x => x == '1');
                 answerArray[i] = countBits;
